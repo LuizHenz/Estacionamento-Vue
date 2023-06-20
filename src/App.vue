@@ -15,7 +15,6 @@
           <li class="nav-item fw-bold"><router-link class="nav-link" to="/modelo-lista">Modelo</router-link></li>
           <li class="nav-item fw-bold"><router-link class="nav-link" to="/configuracao-lista">Configuração</router-link></li>
         </ul>
-        <button class="btn btn-dark" type="submit">SAIR<a href=""></a></button>
       </div>
     </div>
   </nav>
@@ -24,6 +23,7 @@
 
 <style lang="scss">
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 // fim da istilização boostrap!
 
 li {

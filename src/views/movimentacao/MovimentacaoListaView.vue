@@ -2,6 +2,11 @@
     <App></App>
     <div class="container mt-5">
         <h1>Movimentações</h1>
+        <div class="d-grid gap-2 p-1 d-md-flex justify-content-md-end">
+            <router-link to="/movimentacao-cadastro">
+                <button type="button" class="btn btn-secondary">Cadastrar</button>
+            </router-link>
+        </div>
         <table class="table table-dark table-striped">
             <thead>
                 <tr class="text">
@@ -39,15 +44,12 @@
                     <td>0</td>
                     <td>0</td>
                     <th>
-                        <button class="btn btn-outline-danger">Delete</button>
-                        <button class="btn btn-outline-primary">Edit</button>
+                        <button class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
+                        <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
                     </th>
                 </tr>
             </tbody>
         </table>
-        <router-link to="/movimentacao-cadastro">
-            <button type="button" class="btn btn-secondary">Cadastrar</button>
-        </router-link>
     </div>
 </template>
 <style lang="scss">
