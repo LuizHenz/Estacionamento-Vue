@@ -1,0 +1,57 @@
+<template>
+    <App></App>
+    <div class="container mt-5">
+        <h1>Configurações</h1>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr class="text">
+                    <th>ID</th>
+                    <th>Ativo</th>
+                    <th>Valor Hora</th>
+                    <th>Valor Minuto Multa</th>
+                    <th>Inicio Expediente</th>
+                    <th>Fim Expediente</th>
+                    <th>Tempo Para Desconto</th>
+                    <th>Tempo De Desconto</th>
+                    <th>Gerar Desconto</th>
+                    <th>Vagas Moto</th>
+                    <th>Vagas Carro</th>
+                    <th>Vagas Van</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text">
+                    <td>1</td>
+                    <td>true</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>00:00:00</td>
+                    <td>00:00:00</td>
+                    <td>00:00:00</td>
+                    <td>00:00:00</td>
+                    <td>sim</td>
+                    <td>20</td>
+                    <td>5</td>
+                    <td>10</td>
+                    <th>
+                        <button class="btn btn-outline-danger">Delete</button>
+                        <button class="btn btn-outline-primary">Edit</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <router-link to="/configuracao-cadastro">
+            <button type="button" class="btn btn-secondary">Cadastrar</button>
+        </router-link>
+    </div>
+</template>
+<style lang="scss">
+.btn {
+    margin-top: 5px;
+}
+.text {
+    font-size: 15px;
+}
+</style>
+  
