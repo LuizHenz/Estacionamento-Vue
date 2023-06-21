@@ -1,7 +1,7 @@
 <template>
     <App></App>
     <div class="container mt-5">
-        <h1>Cadastro de Configurações</h1>
+        <h1>Cadastro de Movimentações</h1>
         <div class="col">
             <div class="col">
                 <input type="text" class="form-control" placeholder="VeiculoId" aria-label="VeiculoId">
