@@ -20,7 +20,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/marca-cadastro',
     name: 'marca-cadastro-view',
-    component: () => import(/* webpackChunkName: "about" */ '../views/marca/MarcaCadastroView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/marca/MarcaCadastroView.vue'),
+    children: [
+      {
+        path: '/marca-cadastro',
+        name: 'marca-cadastro-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/marca/MarcaCadastroView.vue')
+      },
+      {
+        path: '/marca-cadastro',
+        name: 'marca-cadastro-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/marca/MarcaCadastroView.vue')
+      }
+    ]
   },
   {
     path: '/modelo-lista',
@@ -30,7 +42,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/modelo-cadastro',
     name: 'modelo-cadastro-view',
-    component: () => import(/* webpackChunkName: "about" */ '../views/modelo/ModeloCadastroView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/modelo/ModeloCadastroView.vue'),
+    children: [
+      {
+        path: '/modelo-cadastro',
+        name: 'modelo-cadastro-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/modelo/ModeloCadastroView.vue')
+      },
+      {
+        path: '/modelo-cadastro',
+        name: 'modelo-cadastro-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/modelo/ModeloCadastroView.vue')
+      }
+    ]
   },
   {
     path: '/veiculo-lista',
@@ -40,7 +64,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/veiculo-cadastro',
     name: 'veiculo-cadastro-view',
-    component: () => import(/* webpackChunkName: "about" */'../views/veiculo/VeiculoCadastroView.vue')
+    component: () => import(/* webpackChunkName: "about" */'../views/veiculo/VeiculoCadastroView.vue'),
+    children: [
+      {
+        path: '/veiculo-cadastro',
+        name: 'veiculo-cadastro-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/veiculo/VeiculoCadastroView.vue')
+      },
+      {
+        path: '/veiculo-cadastro',
+        name: 'veiculo-cadastro-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/veiculo/VeiculoCadastroView.vue')
+      }
+    ]
   },
   {
     path: '/condutor-lista',
@@ -50,7 +86,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/condutor-cadastro',
     name: 'condutor-cadastro-view',
-    component: () => import(/* webpackChunkName: "about" */'../views/condutor/CondutorCadastroView.vue')
+    component: () => import(/* webpackChunkName: "about" */'../views/condutor/CondutorCadastroView.vue'),
+    children: [
+      {
+        path: '/condutor-cadastro',
+        name: 'condutor-cadastro-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/condutor/CondutorCadastroView.vue')
+      },
+      {
+        path: '/condutor-cadastro',
+        name: 'condutor-cadastro-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/condutor/CondutorCadastroView.vue')
+      }
+    ]
   },
   {
     path: '/configuracao-lista',

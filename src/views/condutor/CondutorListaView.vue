@@ -3,8 +3,7 @@
     <div class="container mt-5">
         <h1>Condutores</h1>
         <div class="d-grid gap-2 p-1 d-md-flex justify-content-md-end">
-            <router-link to="/condutor-cadastro">
-                <button type="button" class="btn btn-secondary">Cadastrar</button>
+            <router-link type="butto" class="btn btn-success" to="/condutor-cadastro">Cadastrar
             </router-link>
         </div>
         <table class="table table-dark table-striped">
@@ -21,17 +20,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>TRUE</td>
-                    <td>Luiz</td>
-                    <td>111.222.333-44</td>
-                    <td>+55(045)99999-9999</td>
-                    <td>00:00:00</td>
-                    <td>00:00:00</td>
+                <tr v-for="item in condutorList" :key="item.id">
+                    <th>{{ item.id }}</th>
                     <th>
-                        <button class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
-                        <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                        <span v-if="item.ativo" class="badge text-bg-success">Ativo</span>
+                        <span v-if="!item.ativo" class="badge text-bg-success">Inativo</span>
+                    </th>
+                    <td>{{ item.nome }}</td>
+                    <td>{{ item.cpf }}</td>
+                    <td>{{ item.telefone }}</td>
+                    <td>{{ item.tempoPago }}</td>
+                    <td>{{ item.tempoDescontp }}</td>
+                    <th>
+                        <router-link type="button" class="btn btn-outline-primary"
+                            :to="{ name: 'condutor-cadastro-editar-view', query: { id: item.id, form: 'editar' } }">
+                            <i class="bi bi-pencil"></i>
+                        </router-link>
+                        <router-link type="button" class="btn btn-outline-danger"
+                            :to="{ name: 'condutor-cadastro-excluir-view', query: { id: item.id, form: 'excluir' } }">
+                            <i class="bi bi-trash"></i>
+                        </router-link>
                     </th>
                 </tr>
             </tbody>
@@ -43,4 +51,36 @@
     margin-left: 5px;
 }
 </style>
+
+<script lang="ts">
+
+import { defineComponent } from 'vue';
+
+import CondutorClient from '@/client/condutor.client';
+import { Condutor } from '@/model/condutor';
+
+export default defineComponent({
+    name: 'CondutorLista',
+    data() {
+        return {
+            condutorList: new Array<Condutor>()
+        }
+    },
+    mounted() {
+        this.findAll();
+    },
+    methods: {
+
+        findAll() {
+            CondutorClient.listAll().then(success => {
+                this.condutorList = success
+            })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+    }
+});
+
+</script>
   

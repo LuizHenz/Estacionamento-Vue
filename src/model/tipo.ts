@@ -1,6 +1,6 @@
 export enum tipo{
 
-    carro,
-    moto,
-    va
+    CARRO,
+    MOTO,
+    VAN
 }

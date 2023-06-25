@@ -1,7 +1,7 @@
 import { Configuracao } from "@/model/configuracao";
 import axios, {AxiosInstance} from "axios";
 
-export class ConfiguracaoClient{
+class ConfiguracaoClient{
 
     private axiosConfiguracao : AxiosInstance;
 
@@ -20,7 +20,7 @@ export class ConfiguracaoClient{
         }
     }
 
-    public async listarAll() : Promise<Configuracao[]>{
+    public async listAll() : Promise<Configuracao[]>{
         try{
             return(await this.axiosConfiguracao.get<Configuracao[]>(`/listar`)).data
         }catch(error:any){
@@ -52,3 +52,5 @@ export class ConfiguracaoClient{
         }
     }    
 }
+
+export default new ConfiguracaoClient();

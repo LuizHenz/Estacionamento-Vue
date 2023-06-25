@@ -13,16 +13,9 @@
                     <th>ID</th>
                     <th>Ativo</th>
                     <th>Valor Hora</th>
-                    <th>Valor Minuto Multa</th>
-                    <th>Inicio Expediente</th>
-                    <th>Fim Expediente</th>
                     <th>Tempo Para Desconto</th>
                     <th>Tempo De Desconto</th>
-                    <th>Gerar Desconto</th>
-                    <th>Vagas Moto</th>
-                    <th>Vagas Carro</th>
-                    <th>Vagas Van</th>
-                    <th>Ações</th>
+                    <th>Opções</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,4 +49,33 @@
     font-size: 15px;
 }
 </style>
-  
+
+<script lang="ts">
+
+import { defineComponent } from 'vue';
+
+import  ConfiguracaoClient  from '@/client/configuracao.client';
+import { Configuracao } from '@/model/configuracao';
+
+export default defineComponent({
+    name: 'ConfiguracaoList',
+    data() {
+        return {
+            configuracaoList: new Array<Configuracao>()
+        }
+    },
+    mounted() {
+        this.findAll();
+    },
+    methods: {
+        findAll(){
+            ConfiguracaoClient.listAll().then(success => {
+                this.configuracaoList = success;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
+    }
+});
+</script>
