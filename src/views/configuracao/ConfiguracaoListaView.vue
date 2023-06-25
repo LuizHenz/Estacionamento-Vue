@@ -3,8 +3,7 @@
     <div class="container mt-5">
         <h1>Configurações</h1>
         <div class="d-grid gap-2 p-1 d-md-flex justify-content-md-end">
-            <router-link to="/configuracao-cadastro">
-                <button type="button" class="btn btn-secondary">Cadastrar</button>
+            <router-link type="butto" class="btn btn-success" to="/configuracao-cadastro">Cadastrar
             </router-link>
         </div>
         <table class="table table-dark table-striped">
@@ -13,28 +12,40 @@
                     <th>ID</th>
                     <th>Ativo</th>
                     <th>Valor Hora</th>
+                    <th>Valor Multa</th>
+                    <th>Inicio Expediente</th>
+                    <th>Fim Expediente</th>
                     <th>Tempo Para Desconto</th>
                     <th>Tempo De Desconto</th>
+                    <th>Vagas de Carro</th>
+                    <th>Vagas de Moto</th>
+                    <th>Vagas de Van</th>
                     <th>Opções</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="text">
-                    <td>1</td>
-                    <td>true</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>00:00:00</td>
-                    <td>00:00:00</td>
-                    <td>00:00:00</td>
-                    <td>00:00:00</td>
-                    <td>sim</td>
-                    <td>20</td>
-                    <td>5</td>
-                    <td>10</td>
+                <tr v-for="item in configuracaoList" :key="item.id">
+                    <td>{{ item.id }}</td>
                     <th>
-                        <button class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
-                        <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                        <span v-if="item.ativo" class="badge text-bg-success"> Ativo </span>
+                        <span v-if="!item.ativo" class="badge text-bg-danger"> Inativo </span>
+                    </th>
+                    <th>{{ item.valorHora }}</th>
+                    <th>{{ item.valorMinutoMulta }}</th>
+                    <th>{{ item.inicioExpediente }}</th>
+                    <th>{{ item.fimExpediente }}</th>
+                    <th>{{ item.tempoParaDesconto }}</th>
+                    <th>{{ item.tempoDeDesconto }}</th>
+                    <th>{{ item.vagasCarro }}</th>
+                    <th>{{ item.vagasMoto }}</th>
+                    <th>{{ item.vagasVan }}</th>
+                    <th class="col-md-2">
+                        <div>
+                            <router-link type="button" class="btn btn-outline-warning"
+                                :to="{ name: 'configuracao-cadastro-editar-view', query: { id: item.id, form: 'editar' } }">
+                                <i class="bi bi-pencil-fill"></i>
+                            </router-link>
+                        </div>
                     </th>
                 </tr>
             </tbody>
@@ -45,6 +56,7 @@
 .btn {
     margin-top: 5px;
 }
+
 .text {
     font-size: 15px;
 }
@@ -54,7 +66,7 @@
 
 import { defineComponent } from 'vue';
 
-import  ConfiguracaoClient  from '@/client/configuracao.client';
+import ConfiguracaoClient from '@/client/configuracao.client';
 import { Configuracao } from '@/model/configuracao';
 
 export default defineComponent({
@@ -68,13 +80,13 @@ export default defineComponent({
         this.findAll();
     },
     methods: {
-        findAll(){
+        findAll() {
             ConfiguracaoClient.listAll().then(success => {
                 this.configuracaoList = success;
             })
-            .catch(error => {
-                console.log(error);
-            })
+                .catch(error => {
+                    console.log(error);
+                })
         }
     }
 });

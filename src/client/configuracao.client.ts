@@ -14,7 +14,7 @@ class ConfiguracaoClient{
 
     public async findById(id: number) : Promise<Configuracao>{
         try{
-            return(await this.axiosConfiguracao.get<Configuracao>(`/$(id)`)).data
+            return(await this.axiosConfiguracao.get<Configuracao>(`/${id}`)).data
         }catch(error:any){
             return Promise.reject(error.response)
         }
@@ -22,31 +22,23 @@ class ConfiguracaoClient{
 
     public async listAll() : Promise<Configuracao[]>{
         try{
-            return(await this.axiosConfiguracao.get<Configuracao[]>(`/listar`)).data
+            return(await this.axiosConfiguracao.get<Configuracao[]>(`/lista`)).data
         }catch(error:any){
             return Promise.reject(error.response)
         }
     }
 
-    public async cadastrar(configuracao: Configuracao) : Promise<void>{
+    public async cadastrar(configuracao: Configuracao) : Promise<string>{
         try{
-            return(await this.axiosConfiguracao.post(`/`, configuracao)).data
+            return(await this.axiosConfiguracao.post(``, configuracao)).data
         }catch(error:any){
             return Promise.reject(error.response)
         }
     }
 
-    public async editar(configuracao: Configuracao) : Promise<void>{
+    public async editar(id: number, configuracao: Configuracao) : Promise<string>{
         try{
-            return(await this.axiosConfiguracao.put(`/`, configuracao)).data
-        }catch(error:any){
-            return Promise.reject(error.response)
-        }
-    }
-
-    public async deletar(configuracao: Configuracao) : Promise<string>{
-        try{
-            return(await this.axiosConfiguracao.delete(`/$(id)`)).data
+            return(await this.axiosConfiguracao.put(`/${id}`, configuracao)).data
         }catch(error:any){
             return Promise.reject(error.response)
         }

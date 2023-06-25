@@ -108,7 +108,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/configuracao-cadastro',
     name: 'configuracao-cadastro-view',
-    component: () => import(/* webpackChunkName: "about" */'../views/configuracao/ConfiguracaoCadastroView.vue')
+    component: () => import(/* webpackChunkName: "about" */'../views/configuracao/ConfiguracaoCadastroView.vue'),
+    children: [
+      {
+        path: '/configuracao-cadastro',
+        name: 'configuracao-cadastro-editar-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/configuracao/ConfiguracaoCadastroView.vue')
+      },
+      {
+        path: '/configuracao-cadastro',
+        name: 'configuracao-cadastro-excluir-view',
+        component: () => import(/* webpackChunkName: "about" */ '../views/configuracao/ConfiguracaoCadastroView.vue')
+      }
+    ]
   },
   {
     path: '/movimentacao-lista',
@@ -118,7 +130,24 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/movimentacao-cadastro',
     name: 'movimentacao-cadastro-view',
-    component: () => import(/* webpackChunkName: "about" */'../views/movimentacao/MovimentacaoCadastroView.vue')
+    component: () => import(/* webpackChunkName: "about" */'../views/movimentacao/MovimentacaoCadastroView.vue'),
+    children: [
+      {
+        path: '/movimentacao-cadastro',
+        name: 'movimentacao-cadastro-editar-view',
+        component: () => import(/* webpackChunkName: "MovimentacaoFormsView" */ '../views/movimentacao/MovimentacaoCadastroView.vue')
+      },
+      {
+        path: '/movimentacao-cadastro',
+        name: 'movimentacao-cadastro-excluir-view',
+        component: () => import(/* webpackChunkName: "MovimentacaoFormsView" */ '../views/movimentacao/MovimentacaoCadastroView.vue')
+      },
+      {
+        path: '/movimentacao-cadastro',
+        name: 'movimentacao-cadastro-finalizar-view',
+        component: () => import(/* webpackChunkName: "MovimentacaoFormsView" */ '../views/movimentacao/MovimentacaoCadastroView.vue')
+      }
+    ]
   }
 
 ]
