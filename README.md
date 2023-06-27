@@ -1,4 +1,4 @@
-# estacionamento-client
+# Estacionamento-Client
 
 ## Project setup
 ```
