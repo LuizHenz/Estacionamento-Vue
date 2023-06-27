@@ -14,8 +14,8 @@
                     <th>Nome</th>
                     <th>CPF</th>
                     <th>Telefone</th>
-                    <th>Tempo Pago</th>
-                    <th>Tempo Desconto</th>
+                    <!-- <th>Tempo Pago</th>
+                    <th>Tempo Desconto</th> -->
                     <th>Opções</th>
                 </tr>
             </thead>
@@ -29,8 +29,8 @@
                     <td>{{ item.nome }}</td>
                     <td>{{ item.cpf }}</td>
                     <td>{{ item.telefone }}</td>
-                    <td>{{ item.tempoPago }}</td>
-                    <td>{{ item.tempoDescontp }}</td>
+                    <!-- <td>{{ item.tempoPago }}</td>
+                    <td>{{ item.tempoDescontp }}</td> -->
                     <th>
                         <router-link type="button" class="btn btn-outline-primary"
                             :to="{ name: 'condutor-cadastro-editar-view', query: { id: item.id, form: 'editar' } }">

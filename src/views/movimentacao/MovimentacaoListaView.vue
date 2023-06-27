@@ -28,9 +28,9 @@
                     </td>
                     <td>{{ item.veiculo.placa }}</td>
                     <td>{{ item.condutor.nome }}</td>
-                    <td>{{ item.entrada }}</td>
-                    <td>{{ item.saida }}</td>
-                    <td>{{ item.valorTotal }}</td>
+                    <td>{{ formatarData(item.entrada) }}</td>
+                    <td>{{ formatarData(item.saida) }}</td>
+                    <td>R${{ item.valorTotal }}</td>
                     <th class="col-md-2">
                         <div >
                             <router-link v-if="item.ativo" type="button" class="btn btn-outline-warning"
@@ -47,7 +47,7 @@
                             </router-link>
                             <router-link v-if="!item.ativo" type="button" class="btn btn-outline-info ms-3"
                                 :to="{ name: 'movimentacao-recibo-view', query: { id: item.id} }">
-                                Recibo
+                                Finalizar
                             </router-link>
                         </div>
                     </th>
@@ -71,6 +71,8 @@
 import { defineComponent } from 'vue';
 import MovimentacaoClient from '@/client/movimentacao.client';
 import { Movimentacao } from '@/model/movimentacao';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 
 export default defineComponent({
@@ -101,6 +103,29 @@ export default defineComponent({
                 .catch(error => {
                     console.log(error);
                 })
+        },
+        formatarData(data: any) {
+            if (data) {
+                try {
+                    let dateObj;
+                    if (Array.isArray(data)) {
+                        let year = data [0];
+                        let month = data [1] - 1;
+                        let day = data[2];
+                        let hours = data[3];
+                        let minutes = data[4];
+                        let seconds = data.length > 5 ? data[5] : 0;
+
+                        dateObj = new Date(year, month, day, hours, minutes, seconds);
+                    } else {
+                        dateObj = new Date(data);
+                    }
+                    return format(dateObj, 'dd/MM/yyyy HH:mm:ss', { locale: ptBR});
+                } catch (error) {
+                    console.error("Erro ao formatar", error);
+                }
+            }
+            return '';
         }
     }
 });

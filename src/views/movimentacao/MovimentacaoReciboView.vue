@@ -45,6 +45,8 @@
                             <p>{{ recibo.horasDesconto }} </p>
                             <h3>Desconto</h3>
                             <p>{{ recibo.desconto }} </p>
+                            <h3>Valor Total</h3>
+                            <p>{{ recibo.valor }}</p>
                         </article>
                     </div>
                 </div>

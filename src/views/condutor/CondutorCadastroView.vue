@@ -25,14 +25,14 @@
                 <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control"
                     placeholder="Telefone" v-model="condutor.telefone">
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control"
                     placeholder="Tempo Pago" v-model="condutor.tempoPago">
             </div>
             <div class="col">
                 <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control"
                     placeholder="Tempo Desconto" v-model="condutor.tempoDescontp">
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-md-2 offset-md-4">

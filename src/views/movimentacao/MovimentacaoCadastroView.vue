@@ -33,10 +33,10 @@
                 <label class="form-label mt-3">Saida *</label>
                 <input type="text" this class="form-control" v-model="movimentacao.saida">
             </div>
-            <div class="col-md-12 text-start">
+            <!-- <div class="col-md-12 text-start">
                 <label class="form-label mt-3">Valor total *</label>
                 <input type="text" this class="form-control" v-model="movimentacao.valorTotal">
-            </div>
+            </div> -->
         </div>
         
         <div class="row">
@@ -81,6 +81,8 @@ import VeiculoClient from '@/client/veiculo.client';
 import { Veiculo } from '@/model/veiculo';
 import CondutorClient from '@/client/condutor.client';
 import { Condutor } from '@/model/condutor';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 
 export default defineComponent({
@@ -199,6 +201,29 @@ export default defineComponent({
             MovimentacaoClient.fecharMovimentacao(this.movimentacao.id).then(success =>{
                 
             })
+        },
+        formatarData(data: any) {
+            if (data) {
+                try {
+                    let dateObj;
+                    if (Array.isArray(data)) {
+                        let year = data [0];
+                        let month = data [1] - 1;
+                        let day = data[2];
+                        let hours = data[3];
+                        let minutes = data[4];
+                        let seconds = data.length > 5 ? data[5] : 0;
+
+                        dateObj = new Date(year, month, day, hours, minutes, seconds);
+                    } else {
+                        dateObj = new Date(data);
+                    }
+                    return format(dateObj, 'dd/MM/yyyy HH:mm:ss', { locale: ptBR});
+                } catch (error) {
+                    console.error("Erro ao formatar", error);
+                }
+            }
+            return '';
         }
         
     }
