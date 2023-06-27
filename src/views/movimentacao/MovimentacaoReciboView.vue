@@ -24,9 +24,13 @@
                     <div class="col-4">
                         <article>
                             <h3>Condutor</h3>
-                            <p>{{ recibo.condutor }} </p>
+                            <p>{{ recibo.condutor?.nome }}</p>
+                            <p>{{ recibo.condutor?.cpf }}</p>
+                            <p>{{ recibo.condutor?.telefone }}</p>
                             <h3>Veiculo</h3>
-                            <p>{{ recibo.veiculo }} </p>
+                            <p>{{ recibo.veiculo?.modelo?.nome }} </p>
+                            <p>{{ recibo.veiculo?.placa }} </p>
+                            <p>{{ recibo.veiculo?.tipo }} </p>
                             <h3>Entrada</h3>
                             <p>{{ recibo.entrada }} </p>
                             <h3>Saida</h3>
@@ -38,14 +42,11 @@
                             <h3>Horas</h3>
                             <p>{{ recibo.horas }} </p>
                             <h3>Horas Desconto</h3>
-                            <p>{{ recibo.veiculo }} </p>
-                            <h3>Entrada</h3>
-                            <p>{{ recibo.entrada }} </p>
+                            <p>{{ recibo.horasDesconto }} </p>
                             <h3>Desconto</h3>
                             <p>{{ recibo.desconto }} </p>
                         </article>
                     </div>
-                    <div class="col-2"></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-2 offset-md-5">

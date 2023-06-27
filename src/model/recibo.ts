@@ -10,4 +10,5 @@ export class Recibo {
     horasDesconto! : number
     valor! : number
     desconto! : number
+    
 }
