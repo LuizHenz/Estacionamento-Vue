@@ -32,13 +32,13 @@
                     </th>
                     <th>{{ item.valorHora }}</th>
                     <th>{{ item.valorMinutoMulta }}</th>
-                    <th>{{ item.inicioExpediente }}</th>
+                    <th>{{ item.incioExpediente }}</th>
                     <th>{{ item.fimExpediente }}</th>
                     <th>{{ item.tempoParaDesconto }}</th>
                     <th>{{ item.tempoDeDesconto }}</th>
                     <th>{{ item.vagasCarro }}</th>
-                    <th>{{ item.vagasMoto }}</th>
-                    <th>{{ item.vagasVan }}</th>
+                    <th>{{ item.vagasMotos }}</th>
+                    <th>{{ item.vagasVans }}</th>
                     <th class="col-md-2">
                         <div>
                             <router-link type="button" class="btn btn-outline-warning"

@@ -3,9 +3,9 @@
     <div class="container mt-5">
         <h1>Movimentações</h1>
         <div class="d-grid gap-2 p-1 d-md-flex justify-content-md-end">
-      <router-link type="butto" class="btn btn-success" to="/movimentacao-cadastro">Cadastrar
-      </router-link>
-    </div>
+            <router-link type="butto" class="btn btn-success" to="/movimentacao-cadastro">Cadastrar
+            </router-link>
+        </div>
         <table class="table table-dark table-striped">
             <thead>
                 <tr class="text">
@@ -42,7 +42,7 @@
                                 <i class="bi bi-trash-fill"></i>
                             </router-link>
                             <router-link type="button" class="btn btn-outline-info ms-3"
-                                :to="{ name: 'movimentacao-cadastro-finalizar-view', query: { id: item.id, form: 'finalizar' } }">
+                                :to="{ name: 'movimentacao-recibo-view', query: { id: item.id} }">
                                 Finalizar
                             </router-link>
                         </div>

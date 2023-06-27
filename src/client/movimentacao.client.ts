@@ -1,6 +1,7 @@
 import { Movimentacao } from "@/model/movimentacao";
 import axios, {AxiosInstance} from "axios";
 import configuracaoClient from "./configuracao.client";
+import { Recibo } from "@/model/recibo";
 
 class MovimentacaoClient{
 
@@ -53,9 +54,9 @@ class MovimentacaoClient{
         }
     }
 
-    public async fecharMovimentacao(id : number) : Promise<string> {
+    public async fecharMovimentacao(id : number) : Promise<Recibo> {
         try { 
-            return (await this.axiosMovimentacao.put(`/saida/${id}`)).data
+            return (await this.axiosMovimentacao.put<Recibo>(`/saida/${id}`)).data
         } catch (error : any) {
             return Promise.reject(error.response)
         }

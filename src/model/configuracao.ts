@@ -4,14 +4,14 @@ export class Configuracao extends AbstractEntity
 {
     valorHora! : number
     valorMinutoMulta! : number
-    inicioExpediente!: Date
+    incioExpediente!: Date
     fimExpediente!: Date
     tempoParaDesconto! : number
     tempoDeDesconto!: number
     gerarDesconto!: boolean
-    vagasMoto!: number
+    vagasMotos!: number
     vagasCarro!: number
-    vagasVan!: number
+    vagasVans!: number
     
     constructor(){
         super()

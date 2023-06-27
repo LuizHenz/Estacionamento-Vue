@@ -35,13 +35,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 offset-md-6">
+            <div class="col-md-2 offset-md-4">
                 <div class="d-grid gap-2">
                     <router-link type="button" class="btn btn-info" to="/condutor-lista">Voltar
                     </router-link>
                 </div>
             </div>
-            <div class="col-md-3 ">
+            <div class="col-md-2 ">
                 <div class="d-grid gap-2">
                     <button v-if="this.form === undefined" type="button" class="btn btn-success"
                         @click="onClickCadastrar()">
@@ -110,7 +110,7 @@ export default defineComponent({
             })
                 .catch(error => {
                     this.mensagem.ativo = true;
-                    this.mensagem.mensagem = error;
+                    this.mensagem.mensagem = error.data;
                     this.mensagem.titulo = "Erro.";
                     this.mensagem.css = "alert alert-danger alert-dismissible fade show";
                 });
@@ -121,7 +121,7 @@ export default defineComponent({
             })
                 .catch(error => {
                     this.mensagem.ativo = true;
-                    this.mensagem.mensagem = error;
+                    this.mensagem.mensagem = error.data;
                     this.mensagem.titulo = "Erro.";
                     this.mensagem.css = "alert alert-danger alert-dismissible fade show";
                 });
@@ -138,7 +138,7 @@ export default defineComponent({
                 })
                 .catch(error => {
                     this.mensagem.ativo = true;
-                    this.mensagem.mensagem = error;
+                    this.mensagem.mensagem = error.data;
                     this.mensagem.titulo = "Erro. ";
                     this.mensagem.css = "alert alert-danger alert-dismissible fade show";
                 });
@@ -152,7 +152,7 @@ export default defineComponent({
                 })
                 .catch(error => {
                     this.mensagem.ativo = true;
-                    this.mensagem.mensagem = error;
+                    this.mensagem.mensagem = error.data;
                     this.mensagem.titulo = "Erro. ";
                     this.mensagem.css = "alert alert-danger alert-dismissible fade show";
                 });

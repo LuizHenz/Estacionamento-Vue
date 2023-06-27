@@ -30,7 +30,7 @@ class ConfiguracaoClient{
 
     public async cadastrar(configuracao: Configuracao) : Promise<string>{
         try{
-            return(await this.axiosConfiguracao.post(``, configuracao)).data
+            return(await this.axiosConfiguracao.post<string>(``, configuracao)).data
         }catch(error:any){
             return Promise.reject(error.response)
         }
@@ -38,7 +38,7 @@ class ConfiguracaoClient{
 
     public async editar(id: number, configuracao: Configuracao) : Promise<string>{
         try{
-            return(await this.axiosConfiguracao.put(`/${id}`, configuracao)).data
+            return(await this.axiosConfiguracao.put<string>(`/${id}`, configuracao)).data
         }catch(error:any){
             return Promise.reject(error.response)
         }

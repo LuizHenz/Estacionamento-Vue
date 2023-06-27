@@ -11,28 +11,28 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="col">
+        <div class="row">
+            <div class="col-md-6 text-start">
                 <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control"
                     placeholder="Placa" v-model="veiculo.placa">
             </div>
-            <div class="col">
+            <div class="col-md-5 text-start">
                 <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control"
                     placeholder="Ano" v-model="veiculo.ano">
             </div>
-            <div class="col">
-                <label class="form-label" for="cor-enum">Cor*</label>
+            <div class="col-md-6 text-start">
+                <label class="form-label" for="cor-enum">Cor</label>
                 <select v-model="veiculo.cor" :disabled="this.form === 'excluir' ? '' : disabled" class="form-select" aria-label="Default select example" id="cor-enum">
                     <option v-for="cor in corEnum" :value="cor">{{ cor }}</option>
                 </select>
             </div>
-            <div class="col">
+            <div class="col-md-5 text-start">
                 <label class="form-label" for="tipo-veiculo">Tipo</label>
                 <select v-model="veiculo.tipo" :disabled="this.form === 'excluir' ? '' : disabled" class="form-select" aria-label="Default select example" id="tipo-veiculo">
                     <option v-for="tipo in tipoEnum" :value="tipo">{{ tipo }}</option>
                 </select>
             </div>
-            <div class="col">
+            <div class="col-md-11 text-start">
                 <label for="modelo-veiculo">Modelo</label>
                 <select v-model="veiculo.modelo" :disabled="this.form === 'excluir' ? '' : disabled" class="form-select" aria-label="Default select example" id="modelo-veiculo">
                     <option v-for="item in modelo" :value="item">{{ item.nome }}</option>
@@ -41,13 +41,13 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3 offset-md-6">
+            <div class="col-md-2 offset-md-4">
                 <div class="d-grid gap-2">
                     <router-link type="button" class="btn btn-info" to="/veiculo-lista">Voltar
                     </router-link>
                 </div>
             </div>
-            <div class="col-md-3 ">
+            <div class="col-md-2 ">
                 <div class="d-grid gap-2">
                     <button v-if="this.form === undefined" type="button" class="btn btn-success"
                         @click="onClickCadastrar()">
@@ -121,7 +121,7 @@ export default defineComponent({
                 console.log(this.veiculo.modelo.marca)
             }).catch(error => {
                 this.mensagem.ativo = true;
-                    this.mensagem.mensagem = error;
+                    this.mensagem.mensagem = error.data;
                     this.mensagem.titulo = "Erro. ";
                     this.mensagem.css = "alert alert-danger alert-dismissible fade show";
             });
@@ -144,7 +144,7 @@ export default defineComponent({
             }).catch(error => {
                 const bruh = error.data
                 this.mensagem.ativo = true;
-                this.mensagem.mensagem = error;
+                this.mensagem.mensagem = error.data;
                 this.mensagem.titulo = "Error. ";
                 this.mensagem.css = "alert alert-danger alert-dismissible fade show";
             })
@@ -159,7 +159,7 @@ export default defineComponent({
                 this.mensagem.css = "alert alert-success alert-dismissible fade show";
             }).catch(error => {
                 this.mensagem.ativo = true;
-                this.mensagem.mensagem = error;
+                this.mensagem.mensagem = error.data;
                 this.mensagem.titulo = "Error. ";
                 this.mensagem.css = "alert alert-danger alert-dismissible fade show";
             });
@@ -171,7 +171,7 @@ export default defineComponent({
                 this.$router.push({ name: 'veiculo-lista-view' });
             }).catch(error => {
                 this.mensagem.ativo = true;
-                this.mensagem.mensagem = error;
+                this.mensagem.mensagem = error.data;
                 this.mensagem.titulo = "Error. ";
                 this.mensagem.css = "alert alert-danger alert-dismissible fade show";
             })

@@ -39,14 +39,14 @@
             </div>
         </div>
         
-        <div class="row mt-3">
-            <div class="col-md-3 offset-md-6">
+        <div class="row">
+            <div class="col-md-2 offset-md-4">
                 <div class="d-grid gap-2">
                     <router-link type="button" class="btn btn-primary" to="/movimentacao-lista">Voltar
                     </router-link>
                 </div>
             </div>
-            <div class="col-md-3 ">
+            <div class="col-md-2 ">
                 <div class="d-grid gap-2">
                     <button v-if="this.form === undefined" type="button" class="btn btn-success"
                         @click="onClickCadastrar()">
@@ -57,9 +57,6 @@
                     </button>
                     <button v-if="this.form === 'excluir'" type="button" class="btn btn-danger" @click="onClickExcluir()">
                         Excluir
-                    </button>
-                    <button v-if="this.form === 'finalizar'" type="button" class="btn btn-info" @click="FinalizarMovimentacao()">
-                        Finalizar
                     </button>
                 </div>
             </div>
@@ -199,22 +196,9 @@ export default defineComponent({
 
         },
         FinalizarMovimentacao(){
-            MovimentacaoClient.fecharMovimentacao(this.movimentacao.id)
-            .then(sucess => {
-                this.movimentacao = new Movimentacao()
-                this.mensagem.ativo = true;
-                this.mensagem.mensagem = sucess;
-                this.mensagem.titulo = "Parabens! ";
-                this.mensagem.css = "alert alert-success alert-dismissible fade show"
+            MovimentacaoClient.fecharMovimentacao(this.movimentacao.id).then(success =>{
+                
             })
-            .catch(error => {
-                const mensagemError = error.data;
-                this.mensagem.ativo = true;
-                this.mensagem.mensagem = mensagemError;
-                this.mensagem.titulo = "Error! ";
-                this.mensagem.css = "alert alert-danger alert-dismissible fade show"
-            })
-            
         }
         
     }
